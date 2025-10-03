@@ -34,12 +34,21 @@ const PostForm = () => {
       [e.target.name]: value,
     });
   }
+  //funzione di invio del form
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
+      .then((response) => console.log("dati inviati", response.data))
+      .catch((error) => console.log(error));
+  }
 
   return (
     <>
       <div className="container">
         <h1>Post Form</h1>
-        <form>
+        {/* FORM */}
+        <form onSubmit={handleSubmit}>
           {/* autore del post */}
           <div className="mb-3">
             <label htmlFor="author" className="form-label"></label>
@@ -99,7 +108,7 @@ const PostForm = () => {
             </label>
           </div>
           {/* bottone invia */}
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-dark">
             Invia
           </button>
         </form>
