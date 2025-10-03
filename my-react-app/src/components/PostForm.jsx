@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
-// API https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts
-
 const PostForm = () => {
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({
+    author: "",
+    title: "",
+    body: "",
+    pubblic: false,
+  });
 
+  //   axios
   function fetchBlogInfo() {
     axios
       .get("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts")
@@ -17,6 +21,18 @@ const PostForm = () => {
   useEffect(() => {
     fetchBlogInfo();
   }, []);
+
+  //funzione che aggiorna lo stato del form
+  function handleChange(e) {
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+    setFormData({
+      ...formData,
+      [e.target.name]: value,
+    });
+  }
+
   return (
     <>
       <div className="container">
