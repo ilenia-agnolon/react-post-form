@@ -5,27 +5,29 @@ const PostForm = () => {
     author: "",
     title: "",
     body: "",
-    pubblic: false,
+    public: false,
   });
 
   //   axios
-  function fetchBlogInfo() {
-    axios
-      .get("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts")
-      .then((response) => {
-        setFormData.apply(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => console.log(error));
-  }
-  useEffect(() => {
-    fetchBlogInfo();
-  }, []);
+  //   function fetchBlogInfo() {
+  //     axios
+  //       .get("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts")
+  //       .then((response) => {
+  //         setFormData.apply(response.data);
+  //         console.log(response.data);
+  //       })
+  //       .catch((error) => console.log(error));
+  //   }
+  //   useEffect(() => {
+  //     fetchBlogInfo();
+  //   }, []);
 
   //funzione che aggiorna lo stato del form
   function handleChange(e) {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    //se il campo è una checkbox → prendi e.target.checked, che restituisce un booleano (true se spuntata, false se no)
+    // se invece è un campo di testo → prendi e.target.value, che restituisce una stringa (il testo digitato)
 
     setFormData({
       ...formData,
@@ -40,43 +42,60 @@ const PostForm = () => {
         <form>
           {/* autore del post */}
           <div className="mb-3">
-            <label htmlFor="author" className="form-label">
-              autore del post
-            </label>
+            <label htmlFor="author" className="form-label"></label>
             <input
+              id="author"
+              name="author"
               type="text"
               className="form-control"
-              id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              value={formData.author}
+              onChange={handleChange}
+              placeholder="Autore del post"
             />
           </div>
           {/* titolo del post */}
           <div className="mb-3">
-            <label htmlFor="postTitle" className="form-label">
-              titolo del post
-            </label>
+            <label htmlFor="title" className="form-label"></label>
             <input
-              type="password"
+              id="title"
+              name="title"
+              type="text"
               className="form-control"
-              id="exampleInputPassword1"
+              value={formData.title}
+              onChange={handleChange}
+              placeholder="Titolo del post"
             />
           </div>
           {/* testo del post */}
           <div className="mb-3">
-            <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              testo del post
-            </label>
+            <label htmlFor="body" className="form-label"></label>
             <textarea
+              id="body"
+              name="body"
               className="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
+              rows="6"
+              value={formData.body}
+              onChange={handleChange}
+              placeholder="Testo del post"
             ></textarea>
           </div>
           {/* checkbox pubblico */}
           <div className="mb-3 form-check">
-            <input type="checkbox" className="form-check-input" id="public" />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              pubblico
+            <input
+              id="public"
+              name="public"
+              type="checkbox"
+              className="form-check-input"
+              value={formData.public}
+              onChange={handleChange}
+            />
+            <label
+              className="form-check-label"
+              htmlFor="public"
+              value={formData.public}
+            >
+              Pubblico
             </label>
           </div>
           {/* bottone invia */}
