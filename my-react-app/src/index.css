@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,19 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+/*************************************************
+    GENERAL RULES CSS
+ *************************************************/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
 }
