@@ -90,7 +90,7 @@ const PostForm = () => {
               onChange={handleChange}
             />
             <label className="form-check-label" htmlFor="public">
-              Pubblico
+              Post pubblico
             </label>
           </div>
           {/* bottone invia */}
