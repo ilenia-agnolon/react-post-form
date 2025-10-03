@@ -1,28 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // API https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts
 
 const PostForm = () => {
+  const [formData, setFormData] = useState([]);
+
+  function fetchBlogInfo() {
+    axios
+      .get("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts")
+      .then((response) => {
+        setFormData.apply(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+  useEffect(() => {
+    fetchBlogInfo();
+  }, []);
   return (
     <>
       <div className="container">
+        <h1>Post Form</h1>
         <form>
+          {/* autore del post */}
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="author" className="form-label">
               autore del post
             </label>
             <input
-              type="email"
+              type="text"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
-            <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
           </div>
-          <div class="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
+          {/* titolo del post */}
+          <div className="mb-3">
+            <label htmlFor="postTitle" className="form-label">
               titolo del post
             </label>
             <input
@@ -31,6 +45,7 @@ const PostForm = () => {
               id="exampleInputPassword1"
             />
           </div>
+          {/* testo del post */}
           <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
               testo del post
@@ -41,16 +56,14 @@ const PostForm = () => {
               rows="3"
             ></textarea>
           </div>
-          <div class="mb-3 form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" for="exampleCheck1">
+          {/* checkbox pubblico */}
+          <div className="mb-3 form-check">
+            <input type="checkbox" className="form-check-input" id="public" />
+            <label className="form-check-label" htmlFor="exampleCheck1">
               pubblico
             </label>
           </div>
+          {/* bottone invia */}
           <button type="submit" className="btn btn-primary">
             Invia
           </button>
