@@ -8,20 +8,6 @@ const PostForm = () => {
     public: false,
   });
 
-  //   axios
-  //   function fetchBlogInfo() {
-  //     axios
-  //       .get("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts")
-  //       .then((response) => {
-  //         setFormData.apply(response.data);
-  //         console.log(response.data);
-  //       })
-  //       .catch((error) => console.log(error));
-  //   }
-  //   useEffect(() => {
-  //     fetchBlogInfo();
-  //   }, []);
-
   //funzione che aggiorna lo stato del form
   function handleChange(e) {
     const value =
@@ -37,10 +23,14 @@ const PostForm = () => {
   //funzione di invio del form
   function handleSubmit(e) {
     e.preventDefault();
-    axios
+
+    console.log("nuovo post:", formData);
+    window.axios
       .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
-      .then((response) => console.log("dati inviati", response.data))
-      .catch((error) => console.log(error));
+      .then((response) => console.log("POST ok", response.data))
+      .catch((error) => {
+        console.error("Data:", error.response?.data);
+      });
   }
 
   return (
@@ -96,14 +86,10 @@ const PostForm = () => {
               name="public"
               type="checkbox"
               className="form-check-input"
-              value={formData.public}
+              checked={formData.public}
               onChange={handleChange}
             />
-            <label
-              className="form-check-label"
-              htmlFor="public"
-              value={formData.public}
-            >
+            <label className="form-check-label" htmlFor="public">
               Pubblico
             </label>
           </div>
