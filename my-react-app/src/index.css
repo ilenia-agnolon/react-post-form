@@ -80,13 +80,14 @@ button:focus-visible {
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
-  background-color: #efefef;
+  background: linear-gradient(135deg, #c6b9f8, #ffb07c);
+  background-attachment: fixed;
 }
 
 .container {
   width: 50%;
   margin-top: 30px;
-  background-color: #e7e8ea;
+  background: rgba(255, 255, 255, 0.75);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
