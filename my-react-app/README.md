@@ -1,16 +1,47 @@
-# React + Vite
+<img src="./boolean-logo.png" width="20px">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# react-post-form
 
-Currently, two official plugins are available:
+<img src="./react-post-form.png">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🇬🇧 English Version
 
-## React Compiler
+### Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React exercise focused on creating a multi-field form to send data via POST to a remote API for creating new blog posts.
 
-## Expanding the ESLint configuration
+### Assignment Summary
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The assignment required to:
+
+- Create a new React app containing a form to create a new blog post.
+- Collect the following fields from the user:
+  - `author` (string) – post author
+  - `title` (string) – post title
+  - `body` (string) – post content
+  - `public` (boolean) – whether the post is public (`true`) or a draft (`false`)
+- Send the form data with a POST request to the endpoint:
+  - `https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts`
+- Log the response in the console to verify that all data has been sent correctly.
+
+---
+
+## 🇮🇹 Versione Italiana
+
+### Panoramica
+
+Esercizio React dedicato alla creazione di un form multifield per inviare dati in POST a una API e creare nuovi post di blog.
+
+### Riassunto della Consegna
+
+La consegna richiedeva di:
+
+- Creare una nuova app React che contenga un form per la creazione di un nuovo post del blog.
+- Raccogliere dall’utente i seguenti campi:
+  - `author` (string) – autore del post
+  - `title` (string) – titolo del post
+  - `body` (string) – testo del post
+  - `public` (boolean) – se il post deve essere pubblico (`true`) o una bozza (`false`)
+- Inviare i dati del form con una richiesta POST all’endpoint:
+  - `https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts`
+- Stampare in console la risposta dell’API per verificare che i dati siano stati inviati correttamente.
